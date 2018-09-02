@@ -27,7 +27,9 @@ do
 
   #docker exec -it wpup_wordpress_1 wp --allow-root plugin install --activate static-html-output-plugin --version=5.5.1
 
-  docker exec -it wpup_wordpress_1 wp --allow-root plugin install --activate static-html-output-plugin
+  #docker exec -it wpup_wordpress_1 wp --allow-root plugin install --activate static-html-output-plugin
+  docker exec -it wpup_wordpress_1 mv /tmp/static-html-output-plugin/ /var/www/html/wp-content/plugins/
+  docker exec -it wpup_wordpress_1 wp --allow-root plugin activate static-html-output-plugin
 
   docker exec -it wpup_wordpress_1 wp --allow-root plugin update static-html-output-plugin --dry-run
 
